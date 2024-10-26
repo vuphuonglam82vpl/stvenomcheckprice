@@ -1,3 +1,3 @@
 Installation
-git clone https://github.com/vanhbakaa/Notpixel-bot.git
-cd Notpixel-bot
+git clone https://github.com/vuphuonglam82vpl/stvenomcheckprice.git
+cd stvenomcheckprice
