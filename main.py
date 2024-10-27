@@ -73,6 +73,11 @@ def check_price(root):
                 first_item = response_json[0]
                 close_price = float(first_item["close"])
 
+                # Mã màu ANSI
+                RED = "\033[91m"   # Màu đỏ
+                GREEN = "\033[92m" # Màu xanh
+                RESET = "\033[0m"  # Đặt lại màu về mặc định
+
                 # Định dạng in ra close_price với màu sắc tùy thuộc vào giá trị của nó
                 if close_price > 1:
                     print(f"{now_utc7.strftime('%Y-%m-%d %H:%M:%S')}, {GREEN}{close_price:.6f}{RESET}")
