@@ -5,10 +5,6 @@ import datetime
 import tkinter as tk
 import winsound  # Dành cho Windows
 import threading  # Để chạy âm thanh và API trong luồng riêng
-from colorama import Fore, Style, init  # Thư viện colorama
-
-# Khởi tạo colorama để hoạt động tốt trên mọi hệ điều hành
-init(autoreset=True)
 
 # Biến kiểm soát cảnh báo và âm thanh
 is_playing = False
@@ -77,16 +73,7 @@ def check_price(root):
                 first_item = response_json[0]
                 close_price = float(first_item["close"])
 
-                # Định nghĩa mã màu với colorama
-                RED = Fore.RED
-                GREEN = Fore.GREEN
-                RESET = Style.RESET_ALL  # Tự động đặt lại màu
-
-                # In giá trị close_price với màu sắc tùy thuộc vào giá trị của nó
-                if close_price > 1:
-                    print(f"{now_utc7.strftime('%Y-%m-%d %H:%M:%S')}, {GREEN}{close_price:.6f}{RESET}")
-                else:
-                    print(f"{now_utc7.strftime('%Y-%m-%d %H:%M:%S')}, {RED}{close_price:.6f}{RESET}")
+                print(f"{now_utc7.strftime('%Y-%m-%d %H:%M:%S')}, {close_price:.6f}")
 
                 # Kiểm tra giá trị để hiển thị thông báo
                 if close_price > 1.03 and not alert_open:
