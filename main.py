@@ -73,7 +73,11 @@ def check_price(root):
                 first_item = response_json[0]
                 close_price = float(first_item["close"])
 
-                print(f"{now_utc7.strftime('%Y-%m-%d %H:%M:%S')}, {close_price:.6f}")
+                # Định dạng in ra close_price với màu sắc tùy thuộc vào giá trị của nó
+                if close_price > 1:
+                    print(f"{now_utc7.strftime('%Y-%m-%d %H:%M:%S')}, {GREEN}{close_price:.6f}{RESET}")
+                else:
+                    print(f"{now_utc7.strftime('%Y-%m-%d %H:%M:%S')}, {RED}{close_price:.6f}{RESET}")
 
                 # Kiểm tra giá trị để hiển thị thông báo
                 if close_price > 1.03 and not alert_open:
