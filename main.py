@@ -1,10 +1,14 @@
-﻿import requests
+import requests
 import json
 import time
 import datetime
 import tkinter as tk
 import winsound  # Dành cho Windows
 import threading  # Để chạy âm thanh và API trong luồng riêng
+from colorama import Fore, Style, init  # Thư viện colorama
+
+# Khởi tạo colorama để hoạt động tốt trên mọi hệ điều hành
+init(autoreset=True)
 
 # Biến kiểm soát cảnh báo và âm thanh
 is_playing = False
@@ -73,12 +77,12 @@ def check_price(root):
                 first_item = response_json[0]
                 close_price = float(first_item["close"])
 
-                # Mã màu ANSI
-                RED = "\033[91m"   # Màu đỏ
-                GREEN = "\033[92m" # Màu xanh
-                RESET = "\033[0m"  # Đặt lại màu về mặc định
+                # Định nghĩa mã màu với colorama
+                RED = Fore.RED
+                GREEN = Fore.GREEN
+                RESET = Style.RESET_ALL  # Tự động đặt lại màu
 
-                # Định dạng in ra close_price với màu sắc tùy thuộc vào giá trị của nó
+                # In giá trị close_price với màu sắc tùy thuộc vào giá trị của nó
                 if close_price > 1:
                     print(f"{now_utc7.strftime('%Y-%m-%d %H:%M:%S')}, {GREEN}{close_price:.6f}{RESET}")
                 else:
