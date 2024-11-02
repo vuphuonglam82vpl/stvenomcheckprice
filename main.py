@@ -76,9 +76,9 @@ def check_price(root):
                 print(f"{now_utc7.strftime('%Y-%m-%d %H:%M:%S')}, {close_price:.6f}")
 
                 # Kiểm tra giá trị để hiển thị thông báo
-                if close_price > 1.03 and not alert_open:
+                if close_price > 1 and not alert_open:
                     root.after(0, show_alert, "Cảnh báo", "Bán", "red", root)
-                elif close_price < 0.97 and not alert_open:
+                elif close_price < 0.95 and not alert_open:
                     root.after(0, show_alert, "Cảnh báo", "Mua", "green", root)
             else:
                 print("Response trống hoặc không có dữ liệu")
